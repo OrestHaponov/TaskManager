@@ -1,0 +1,42 @@
+.userlist{
+    position: fixed;
+    background: rgba(0, 0, 0, 0.438);
+    height: 100vh;
+    width: 350px;
+    padding-left: 50px;
+    color: #fff;
+    font-family: 'PoiretOne';
+    ul{
+        list-style-type: none;
+        padding: 0;
+        li{
+            font-size: 25px;
+            margin: 20px 0 20px 0;
+        }
+    }
+}
+
+.toggle__arrow__open,.toggle__arrow__close{
+    position: absolute;
+    right: -40px;
+    top: 30px;
+    img{
+        width: 35px;
+        height: 40px;
+    }
+}
+
+.toggle__arrow__open{
+    transform: rotate(90deg)
+}
+.toggle__arrow__close{
+    transform: rotate(-90deg)
+}
+
+.open{
+    left: 0;
+}
+
+.close{
+    left: -400px;
+}
