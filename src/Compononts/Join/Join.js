@@ -12,9 +12,8 @@ class Join extends React.Component {
         return (
             <div className="Join">
                 <div className="wrapper">
-                {/* <Link to="/login">Login</Link> */}
+                <Link to="/login">Login</Link>
                 <Link to="/registration">Registration</Link>
-                <Login />
                 </div>
             </div>
         );

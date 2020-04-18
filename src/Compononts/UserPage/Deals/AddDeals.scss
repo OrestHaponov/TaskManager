@@ -1,0 +1,33 @@
+.userPage{
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    width: 500px;
+}
+.addDeals{
+    border-bottom: 1px solid rgba(0, 0, 0, 0.212);
+    display: flex;
+    justify-content: space-between;
+        &__input{
+            font-family: 'PoiretOne';
+            padding-left: 15px;
+            font-size: 20px;
+            width: 430px;
+            height: 40px;
+            background-color: rgb(255,255,255);
+            border: none;
+            border-right: none;
+            outline: none;
+            flex-basis: 79%;
+        }
+        &__button{
+            font-family: 'Lato-Light';
+            color: #E4D3D5;
+            font-size: 17px;
+            height: 40px;
+            padding-right: 10px;
+            background-color: rgb(255,255,255);
+            border: transparent;
+            cursor: pointer;
+            outline: none;
+            flex-basis: 10%;
+        }
+    }

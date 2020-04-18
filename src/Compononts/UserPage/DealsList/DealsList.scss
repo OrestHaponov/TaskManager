@@ -1,0 +1,53 @@
+.userPage{
+    .wrapper{
+        width: 500px;
+    }
+    &__deals-list{
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        font-family: 'Montserrat Regular';
+        font-size: 20px;
+        color: rgba(0, 0, 0, 0.726);
+        li{
+            display: flex;
+            justify-content: space-between;
+            height: 50px;
+            margin: 0;
+            border: 1px solid rgba(0, 0, 0, 0.144);
+            border-top: none;
+        }
+        &-input{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-basis: 12%;
+            input{
+                transform: scale(2.3);
+            }
+        }
+        p{
+            width: 450px;
+            display: flex;
+            align-items: center;
+        }
+        &-delete{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-basis: 10%;
+            img{
+                width: 15px;
+            }
+        }
+    }
+}
+
+.done{
+    text-decoration: line-through;
+}
+
+.active{
+    border: 1px solid rgba(0, 0, 0, 0.212);
+    border-radius: 4px;
+}

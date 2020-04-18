@@ -1,0 +1,56 @@
+.userPage__deals{
+    &-info{
+        font-family: 'Montserrat Regular';
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.144);
+        color: rgba(0, 0, 0, 0.61);
+        font-size: 15px;
+        span{
+            padding-left: 10px;
+            flex-basis: 30%;
+        }
+        ul{
+            padding: 0;
+            flex-basis: 60%;
+            li{
+                padding: 5px;
+                margin: 10px;
+                display: inline;
+            }
+        }
+        &-clear{
+            flex-basis: 30%;
+            text-align: center;
+            span{
+                padding: 0;
+            }
+        }
+        .bg_one{
+            position: absolute;
+            width: 488px;
+            height: 5px;
+            background: #fff;
+            left: 4px;
+            bottom: -7px;
+            box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.4);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.144);
+            border-right: 1px solid rgba(199, 177, 177, 0.322);
+            border-left: 1px solid rgba(199, 177, 177, 0.322);
+        }
+        .bg_two{
+            position: absolute;
+            width: 476px;
+            height: 5px;
+            background: #fff;
+            left: 8px;
+            bottom: -13px;
+            box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.4);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.144);
+            border-right: 1px solid rgba(199, 177, 177, 0.322);
+            border-left: 1px solid rgba(199, 177, 177, 0.322);
+        }
+    }
+}

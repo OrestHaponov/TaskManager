@@ -1,4 +1,5 @@
 import {HANDLE_CHANGE_EMAIL_LOGIN,HANDLE_CHANGE_PASS_LOGIN,CLEAR_LOGIN_FORM} from "../Action/ActionTypes";
+import { useHistory } from "react-router-dom";
 
 export function handleChangeEmailLogin(valueEmailLogin){
     return{
@@ -17,9 +18,10 @@ export function handleChangePassLogin(valuePassLogin){
 export function login(valueEmailLogin,valuePassLogin,users){
     return(dispatch) =>{
        event.preventDefault();
+       let history = useHistory();
        users.map(value =>{
            if(value.email == valueEmailLogin && value.pass == valuePassLogin){
-            window.location.href = '/'+value.id;
+            history.push("/");
            }else{
                alert("Wrong email or password")
            }
