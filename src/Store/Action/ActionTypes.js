@@ -15,7 +15,14 @@ export const TOGGLE_USER_LIST = "TOGGLE_USER_LIST"
 export const HANDLE_CHANGE_TASK = "HANDLE_CHANGE_TASK"
 export const ADD_USER_DEALS = "ADD_USER_DEALS"
 export const CLEAR_INPUT = "CLEAR_INPUT"
-export const DONE_DEAL = "DONE_DEAL"
+
+//DEALS 
 export const CLEAR_USERS = "CLEAR_USERS"
 export const DONE = "DONE"
+export const SHOW_ALL_DEALS = "SHOW_ALL_DEALS"
+export const SHOW_ACTIVE_DEALS = "SHOW_ACTIVE_DEALS"
+export const SHOW_COMPLETED_DEALS = "SHOW_COMPLETED_DEALS"
+export const CLEAR_ALL = "CLEAR_ALL"
+export const CLEAR_COMPLETED = "CLEAR_COMPLETED"
+export const RETURN_ALL = "RETURN_ALL"
 

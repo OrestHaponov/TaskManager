@@ -7,7 +7,7 @@ import UserPage from "./UserPage"
 export default function Child() {
     let {name} = useParams();
   return (
-    <div>
+    <div className="user">
         <h1> { name }'s list</h1>
         <UserPage userName={name}/>
     </div>

@@ -1,4 +1,4 @@
-import {HANDLE_CHANGE_TASK,ADD_USER_DEALS,DONE,CLEAR_INPUT} from "./ActionTypes";
+import {HANDLE_CHANGE_TASK,ADD_USER_DEALS,CLEAR_INPUT} from "./ActionTypes";
 
 // FUNCTIONAL TO ADD DEALS
 
@@ -19,17 +19,11 @@ export function addTask(task,users,userName){
                 deal["isDone"] = false;
                 deal["id"] = Math.floor(Math.random() * 1000) + 1;
                 value.deals.push(deal);
+                value.activeDeals.push(deal);
             }
         })
         dispatch(clearInput())
-        dispatch(clearUsers())
         dispatch(addUserDeal(users))
-    }
-}
-
-export function clearUsers(){
-    return{
-        type: CLEAR_USERS
     }
 }
 

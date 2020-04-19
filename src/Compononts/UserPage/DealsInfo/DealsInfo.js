@@ -1,8 +1,8 @@
 import React from "react";
 import "./DealsInfo.scss";
-import AllDealsCount from "./DealsCount/AllDealsCount";
 import DealsStates from "./DealsStates/DealsStates";
-import ClearAll from "./DealsClear/ClearAll";
+import DealsCount from "./DealsCount/DealsCount";
+import DealsClear from "./DealsClear/DealsClear";
 
 class DealsInfo extends React.Component {
     constructor(props){
@@ -11,27 +11,28 @@ class DealsInfo extends React.Component {
     render() {
         return (
                 <div className="userPage__deals-info">
-                    <AllDealsCount userDeals={this.props.userDeals}/>
-                    {/* <AllDealsCount 
-                        deals={this.props.deals}
+                    <DealsCount 
+                        userDeals={this.props.userDeals}
                         showAll={this.props.showAll}
+                        showActive={this.props.showActive}                    
+                        showCompleted={this.props.showCompleted}
                     />
-                    <ActiveDealsCount 
-                        showActive={this.props.showActive} 
-                        dealsListActive={this.props.dealsListActive}
-                    />
-                    <CompletedDealsCount 
-                        showCompleted={this.props.showCompleted} 
-                        dealsListCompleted={this.props.dealsListCompleted}
-                    /> */}
                     <DealsStates 
-
+                        showAll={this.props.showAll}
+                        showActive={this.props.showActive}
+                        showCompleted={this.props.showCompleted}
+                        showAllDeals={this.props.showAllDeals}
+                        showActiveDeals={this.props.showActiveDeals}
+                        showCompletedDeals={this.props.showCompletedDeals}
                     />
-                    <div className="userPage__deals-info-clear">
-                        <ClearAll 
-                        
-                        />
-                    </div>
+                    <DealsClear 
+                        users={this.props.users}
+                        userName={this.props.userName}
+                        showAll={this.props.showAll}
+                        clearAllDeals={this.props.clearAllDeals}
+                        showCompleted={this.props.showCompleted}
+                        clearCompletedDeals={this.props.clearCompletedDeals}
+                    />
                     {/* <div className="bg_one"></div>
                     <div className="bg_two"></div> */}
                 </div>

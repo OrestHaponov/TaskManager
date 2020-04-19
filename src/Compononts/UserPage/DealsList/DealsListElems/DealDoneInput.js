@@ -11,7 +11,7 @@ class DealDoneInput extends React.Component {
                 <input
                     type="checkbox"
                     checked={this.props.isDone}
-                    onChange={()=>this.props.doneDeal(this.props.users,this.props.dealId,this.props.userName)} 
+                    onChange={()=>this.props.doneDeal(this.props.users,this.props.dealId,this.props.userName,this.props.doneDealsList)} 
                 /> 
             </div>
         );

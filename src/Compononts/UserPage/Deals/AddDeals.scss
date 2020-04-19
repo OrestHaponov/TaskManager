@@ -6,6 +6,9 @@
     border-bottom: 1px solid rgba(0, 0, 0, 0.212);
     display: flex;
     justify-content: space-between;
+        form{
+            border-bottom: 1px solid rgba(0, 0, 0, 0.13);
+        }
         &__input{
             font-family: 'PoiretOne';
             padding-left: 15px;

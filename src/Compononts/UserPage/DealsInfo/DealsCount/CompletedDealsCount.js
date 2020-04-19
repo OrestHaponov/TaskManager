@@ -7,14 +7,14 @@ class AllDealsCount extends React.Component {
     render() {
         return (
             <React.Fragment>
-                {this.props.showAll === true ? 
+                {this.props.showCompleted === true ? 
                     <React.Fragment>
                         {this.props.userDeals.map((value,index)=>{
                             return(
                                 <span key={index}>
                                     You have&ensp; 
-                                    {value.deals.length}  
-                                    {value.deals.length == 1 ? " deal " : " deals "}
+                                    {value.doneDeals.length}  
+                                    {value.doneDeals.length == 1 ? " deal " : " deals "}
                                 </span>
                             )
                         })}

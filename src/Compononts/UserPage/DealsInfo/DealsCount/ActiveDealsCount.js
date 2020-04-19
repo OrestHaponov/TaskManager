@@ -1,20 +1,19 @@
 import React from "react";
 
-class AllDealsCount extends React.Component {
+class ActiveDealsCount extends React.Component {
     constructor(props){
         super(props);
     }
     render() {
         return (
             <React.Fragment>
-                {this.props.showAll === true ? 
+                {this.props.showActive === true ? 
                     <React.Fragment>
                         {this.props.userDeals.map((value,index)=>{
                             return(
                                 <span key={index}>
-                                    You have&ensp; 
-                                    {value.deals.length}  
-                                    {value.deals.length == 1 ? " deal " : " deals "}
+                                    {value.activeDeals.length}
+                                    {value.activeDeals.length == 1 ? " item left" : " items left "}
                                 </span>
                             )
                         })}
@@ -25,4 +24,4 @@ class AllDealsCount extends React.Component {
     }
 }
 
-export default AllDealsCount;
+export default ActiveDealsCount;

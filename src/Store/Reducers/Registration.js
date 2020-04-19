@@ -1,4 +1,4 @@
-import {HANDLE_CHANGE_NAME,HANDLE_CHANGE_EMAIL,HANDLE_CHANGE_PASS,ADD_USER,ADD_USER_DEALS,CLEAR_USERS,DONE} from "../Action/ActionTypes";
+import {HANDLE_CHANGE_NAME,HANDLE_CHANGE_EMAIL,HANDLE_CHANGE_PASS,ADD_USER,ADD_USER_DEALS,CLEAR_USERS,DONE,CLEAR_ALL,CLEAR_COMPLETED,RETURN_ALL} from "../Action/ActionTypes";
 
 const initialState ={
     valueName: "",
@@ -41,7 +41,20 @@ export default function toDoList(state = initialState, action){
             return { 
                 ...state, users: action.users
             }
-        
+        //CLEAR DEALS (ALL,COMPLETED)
+        case CLEAR_ALL:
+            return { 
+                ...state, users: action.users
+            }
+        case CLEAR_COMPLETED:
+            return { 
+                ...state, users: action.users
+            }
+        //RETURN ALL
+        case RETURN_ALL:
+            return { 
+                ...state, users: action.users
+            }
         default:
             return state
     }

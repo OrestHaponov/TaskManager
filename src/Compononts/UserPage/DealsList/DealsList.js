@@ -1,49 +1,47 @@
 import React from "react";
 import "./DealsList.scss";
-import DealDoneInput from "./DealDoneInput";
-import DealText from "./DealText";
-import DealDelete from "./DealDelete";
+import DealsAllList from "./Lists/DealsAllList";
+import DealsActiveList from "./Lists/DealsActiveList";
+import DealsCompletedList from "./Lists/DealsCompletedList";
 
-class DealsList extends React.Component {
+
+class ListDeals extends React.Component {
     constructor(props){
         super(props);
     }
-
     render() {
         return (
-            <ul className="userPage__deals-list">
-                {this.props.userDeals.map((value,index)=>{
-                    return(
-                        <React.Fragment key={index}>
-                            {value.deals.map((value,index)=>{
-                                return(
-                                    <li key={index}>
-                                        <DealDoneInput 
-                                            users={this.props.users}
-                                            isDone={value.isDone}
-                                            dealId={value.id}
-                                            userName={this.props.userName}
-                                            doneDeal={this.props.doneDeal}
-                                            />
-                                        <DealText 
-                                            text={value.text}
-                                            isDone={value.isDone}
-                                            />
-                                        <DealDelete 
-                                            users={this.props.users}
-                                            dealId={value.id}
-                                            userName={this.props.userName}
-                                            deleteDeal={this.props.deleteDeal}
-                                        />
-                                    </li>
-                                )
-                            })}
-                        </React.Fragment>
-                    )
-                })}
-            </ul>
+            <div className="list__deals">
+                {this.props.showAll === true ? 
+                    <DealsAllList 
+                        userDeals={this.props.userDeals}
+                        userName={this.props.userName}
+                        users={this.props.users}
+                        doneDeal={this.props.doneDeal}
+                        deleteDeal={this.props.deleteDeal}
+                    />
+                : null}
+                {this.props.showActive === true ? 
+                    <DealsActiveList 
+                        userDeals={this.props.userDeals}
+                        userName={this.props.userName}
+                        users={this.props.users}
+                        doneDeal={this.props.doneDeal}
+                    />
+                : null}
+                {this.props.showCompleted === true ?
+                    <DealsCompletedList
+                        userDeals={this.props.userDeals}
+                        userName={this.props.userName}
+                        users={this.props.users}
+                        doneDeal={this.props.doneDeal}
+                        deleteDeal={this.props.deleteDeal}
+                        returnToAll={this.props.returnToAll}
+                    />
+                : null}
+            </div>
         );
     }
 }
 
-export default DealsList;
+export default ListDeals;

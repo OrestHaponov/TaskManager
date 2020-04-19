@@ -4,16 +4,13 @@
         position: relative;
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content: flex-start;
         border-bottom: 1px solid rgba(0, 0, 0, 0.144);
         color: rgba(0, 0, 0, 0.61);
         font-size: 15px;
-        span{
-            padding-left: 10px;
-            flex-basis: 30%;
-        }
         ul{
             padding: 0;
+            text-align: center;
             flex-basis: 60%;
             li{
                 padding: 5px;
@@ -21,12 +18,10 @@
                 display: inline;
             }
         }
-        &-clear{
-            flex-basis: 30%;
+        span{
+            flex-basis: 20%;
             text-align: center;
-            span{
-                padding: 0;
-            }
+            padding: 0;
         }
         .bg_one{
             position: absolute;

@@ -29,10 +29,9 @@ export function handleSubmitUser(valueName,valueEmail,valuePass){
         user["email"] = valueEmail;
         user["pass"] = valuePass;
         user["id"] = Math.floor(Math.random() * 1000) + 1;
-        user["deals"] = [
-
-            
-        ];
+        user["deals"] = [];
+        user["activeDeals"] = [];
+        user["doneDeals"] = [];
         dispatch(addUser(user))
         window.location.href = "/"
     }
