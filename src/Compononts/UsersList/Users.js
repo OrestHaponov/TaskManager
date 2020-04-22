@@ -10,12 +10,15 @@ class Users extends React.Component {
             <ul>
               {this.props.users.map((value,index)=>{
                 return(
-                  <Link to={value.name}
-                  key={index}>
-                    <div className="users">
-                      <h3>{value.name}</h3>
-                    </div>
-                  </Link>
+                  <React.Fragment key={index}>
+                    {this.props.loginUserName !== value.name ?
+                      <li className="users">
+                        <Link to={value.name}>
+                            {value.name}
+                        </Link>
+                      </li>
+                    : null}
+                  </React.Fragment>
                 )
               })}
             </ul>

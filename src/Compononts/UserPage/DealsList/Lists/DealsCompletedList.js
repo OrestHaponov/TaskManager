@@ -16,6 +16,7 @@ class DealsCompletedList extends React.Component {
                             {value.doneDeals.map((value,index)=>{
                                 return(
                                     <li key={index}>
+                                        {this.props.userName == this.props.loginUserName ?
                                         <div className="userPage__deals-list-input">
                                             <input
                                                 type="checkbox"
@@ -23,9 +24,11 @@ class DealsCompletedList extends React.Component {
                                                 onChange={()=>this.props.returnToAll(doneDealsList,value.id,this.props.users,this.props.userName)} 
                                             /> 
                                         </div>
+                                        : null}
                                         <DealText 
                                             text={value.text}
                                             isDone={value.isDone}
+                                            share={value.share}
                                         />
                                     </li>
                                 )

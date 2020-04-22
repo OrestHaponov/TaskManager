@@ -11,11 +11,13 @@ class Login extends React.Component {
     render() {
         return (
             <div className="login">
-                <form onSubmit={()=>this.props.login(this.props.valueEmailLogin,this.props.valuePassLogin,this.props.users)} className="login__form">
-                    <input type="text" onChange={this.props.handleChangeEmailLogin} value={this.props.valueEmailLogin} placeholder="Email"/>
-                    <input type="text" onChange={this.props.handleChangePassLogin} value={this.props.valuePassLogin} placeholder="Password"/>
-                    <input type="submit" value="Login" className="login__form-button"/>
-                </form>
+                <div className="wrapper">
+                    <form onSubmit={()=>this.props.login(this.props.valueEmailLogin,this.props.valuePassLogin,this.props.users)} className="login__form">
+                        <input type="text" onChange={this.props.handleChangeEmailLogin} value={this.props.valueEmailLogin} placeholder="Email"/>
+                        <input type="text" onChange={this.props.handleChangePassLogin} value={this.props.valuePassLogin} placeholder="Password"/>
+                        <input type="submit" value="Login" className="login__form-button"/>
+                    </form>
+                </div>
             </div>
         );
     }

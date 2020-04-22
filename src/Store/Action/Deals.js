@@ -1,4 +1,4 @@
-import {CLEAR_USERS,DONE,SHOW_ALL_DEALS,SHOW_ACTIVE_DEALS,SHOW_COMPLETED_DEALS,CLEAR_ALL,CLEAR_COMPLETED,RETURN_ALL} from "./ActionTypes";
+import {CLEAR_USERS,DONE,SHOW_ALL_DEALS,SHOW_ACTIVE_DEALS,SHOW_COMPLETED_DEALS,CLEAR_ALL,CLEAR_COMPLETED,RETURN_ALL,SHOW_EDIT_FORM,HANDLE_CHANGE_EDIT,CHANGE_EDIT_VALUE,EDITED_DEALS,HANDLE_CHANGE_SHARE,SHOW_SHARE_FORM,SHARE,CLEAR_SHARE_VALUE} from "./ActionTypes";
 
 //DONE DEAL
 export function doneDeal(users,dealId,userName,doneDealsList){
@@ -130,5 +130,156 @@ export function deleteDeal(users,dealId,userName){
     export function clearCompleted(){
         return{
             type: CLEAR_COMPLETED
+        }
+    }
+
+//EDIT DEAL
+    //SHOW EDIT FORM
+    export function showEdit(users,userName,dealId,dealText){
+        return(dispatch) =>{
+            const user = users.filter(findNeedUser=>findNeedUser.name == userName);
+            user.map(value=>{
+                value.deals.map(value=>{
+                    value.edit = false
+                    value.share = false;
+                    if(value.id == dealId){
+                        value.edit = true;
+                    }
+                })
+            })
+            dispatch(clearUsers())
+            dispatch(changeEditValue(dealText))
+            dispatch(showEditForm(users))
+        }
+    }
+
+    export function changeEditValue(dealText){
+        return{
+            type: CHANGE_EDIT_VALUE,
+            dealText
+        }
+    }
+    export function showEditForm(users){
+        return{
+            type: SHOW_EDIT_FORM,
+            users
+        }
+    }
+
+    //CHANGE DEAL TEXT
+    
+    export function editDealText(users,userName,dealId,valueEdit){
+        return(dispatch) =>{
+            event.preventDefault();
+            if(valueEdit == ""){
+                alert("You have to type something");
+            }else{
+                const user = users.filter(findNeedUser=>findNeedUser.name == userName);
+                user.map(value=>{
+                    value.deals.map(value=>{
+                        if(value.id == dealId){
+                            value.text = valueEdit
+                            value.edit = false;
+                        }
+                    })
+                })
+                dispatch(clearUsers())
+                dispatch(editedDeal(users))
+            }
+        }
+    }
+
+    export function hadleChangeEdit(valueEdit){
+        return{
+            type: HANDLE_CHANGE_EDIT,
+            valueEdit
+        }
+    }
+
+    export function editedDeal(users){
+        return{
+            type: EDITED_DEALS,
+            users
+        }
+    }
+
+//SHARE DEAL
+    //SHOW SHARE FORM
+    export function shareDeal(users,userName,dealId){
+        return(dispatch) =>{
+            const user = users.filter(findNeedUser=>findNeedUser.name == userName);
+            user.map(value=>{
+                value.deals.map(value=>{
+                    value.share = false;
+                    value.edit = false;
+                    if(value.id == dealId){
+                        value.share = true;
+                    }
+                })
+            })
+            dispatch(clearUsers())
+            dispatch(showShareForm(users))
+        }
+    }
+
+    export function showShareForm(users){
+        return{
+            type: SHOW_SHARE_FORM,
+            users
+        }
+    }
+
+    export function hadleChangeShare(valueShare){
+        return{
+            type: HANDLE_CHANGE_SHARE,
+            valueShare
+        }
+    }
+
+    //SHARE DEAL
+    
+    export function shareDealText(users,userName,dealId,valueShare){
+        return(dispatch) =>{
+            event.preventDefault();
+            const user = users.filter(findNeedUser=>findNeedUser.name == userName);
+            let deal = null
+                user.map(value=>{
+                    value.deals.map(value=>{
+                        if(value.id == dealId){
+                            value.share = false;
+                            value.isDone = false;
+                            deal = value;
+                        }
+                    })
+                })
+            if(valueShare == ""){
+                alert("Please type user name");
+            }else{
+                let user = users.filter(findNeedUser=>findNeedUser.name == valueShare);
+                if(user.length === 0){
+                    alert("user is not defined");
+                }else{
+                    user.map(value=>{
+                        value.deals.push(deal);
+                        value.activeDeals.push(deal);
+                        value.deals = value.deals.filter(function (item, pos) {return value.deals.indexOf(item) == pos});
+                    })
+                    dispatch(clearUsers())
+                    dispatch(clearShareValue())
+                    dispatch(share(users))
+                }
+            }
+        }
+    }
+
+    export function clearShareValue(){
+        return{
+            type: CLEAR_SHARE_VALUE
+        }
+    }
+    export function share(users){
+        return{
+            type: SHARE,
+            users
         }
     }

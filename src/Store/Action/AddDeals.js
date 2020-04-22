@@ -12,18 +12,24 @@ export function handleChangeTask(valueTask){
 export function addTask(task,users,userName){
     return(dispatch) =>{
         event.preventDefault();
-        users.map(value =>{
-            if (value.name === userName){
-                let deal = {}
-                deal["text"] = task;
-                deal["isDone"] = false;
-                deal["id"] = Math.floor(Math.random() * 1000) + 1;
-                value.deals.push(deal);
-                value.activeDeals.push(deal);
-            }
-        })
-        dispatch(clearInput())
-        dispatch(addUserDeal(users))
+        if(task == ""){
+            alert("You have to type something");
+        }else{
+            users.map(value =>{
+                if (value.name === userName){
+                    let deal = {}
+                    deal["text"] = task;
+                    deal["isDone"] = false;
+                    deal["edit"] = false;
+                    deal["share"] = false;
+                    deal["id"] = Math.floor(Math.random() * 1000) + 1;
+                    value.deals.push(deal);
+                    value.activeDeals.push(deal);
+                }
+            })
+            dispatch(clearInput())
+            dispatch(addUserDeal(users))
+        }
     }
 }
 

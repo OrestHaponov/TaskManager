@@ -17,8 +17,17 @@ class ListDeals extends React.Component {
                         userDeals={this.props.userDeals}
                         userName={this.props.userName}
                         users={this.props.users}
+                        loginUserName={this.props.loginUserName}
+                        valueEdit={this.props.valueEdit}
+                        valueShare={this.props.valueShare}
                         doneDeal={this.props.doneDeal}
                         deleteDeal={this.props.deleteDeal}
+                        showEdit={this.props.showEdit}
+                        hadleChangeEdit={this.props.hadleChangeEdit}
+                        editDealText={this.props.editDealText}
+                        hadleChangeShare={this.props.hadleChangeShare}
+                        shareDeal={this.props.shareDeal}
+                        shareDealText ={this.props.shareDealText }
                     />
                 : null}
                 {this.props.showActive === true ? 
@@ -26,6 +35,7 @@ class ListDeals extends React.Component {
                         userDeals={this.props.userDeals}
                         userName={this.props.userName}
                         users={this.props.users}
+                        loginUserName={this.props.loginUserName}
                         doneDeal={this.props.doneDeal}
                     />
                 : null}
@@ -34,6 +44,7 @@ class ListDeals extends React.Component {
                         userDeals={this.props.userDeals}
                         userName={this.props.userName}
                         users={this.props.users}
+                        loginUserName={this.props.loginUserName}
                         doneDeal={this.props.doneDeal}
                         deleteDeal={this.props.deleteDeal}
                         returnToAll={this.props.returnToAll}

@@ -4,14 +4,25 @@
     height: 100vh;
     width: 350px;
     padding-left: 50px;
-    color: #fff;
     font-family: 'PoiretOne';
+    color: #fff;
+    a{
+        text-decoration: none;
+        color: #fff;
+        .mylist{
+            font-style: italic;
+        }
+    }
     ul{
         list-style-type: none;
         padding: 0;
         li{
             font-size: 25px;
             margin: 20px 0 20px 0;
+            a{
+                color: #fff;
+                text-decoration: none;
+            }
         }
     }
 }

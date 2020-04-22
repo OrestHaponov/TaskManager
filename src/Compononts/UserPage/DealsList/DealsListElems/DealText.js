@@ -7,7 +7,11 @@ class DealText extends React.Component {
 
     render() {
         return (
-            <p className={this.props.isDone === true ? "done" : null}>{this.props.text}</p>
+            <React.Fragment>
+                {this.props.share === false ?
+                    <p className={this.props.isDone === true ? "done" : null}>{this.props.text}</p>
+                : null}
+            </React.Fragment>
         );
     }
 }

@@ -7,13 +7,17 @@ class DealDoneInput extends React.Component {
 
     render() {
         return (
-            <div className="userPage__deals-list-input">
-                <input
-                    type="checkbox"
-                    checked={this.props.isDone}
-                    onChange={()=>this.props.doneDeal(this.props.users,this.props.dealId,this.props.userName,this.props.doneDealsList)} 
-                /> 
-            </div>
+            <React.Fragment>
+                {this.props.userName == this.props.loginUserName ?
+                    <div className="userPage__deals-list-input">
+                        <input
+                            type="checkbox"
+                            checked={this.props.isDone}
+                            onChange={()=>this.props.doneDeal(this.props.users,this.props.dealId,this.props.userName,this.props.doneDealsList)} 
+                            /> 
+                    </div>
+            : null}
+            </React.Fragment>
         );
     }
 }

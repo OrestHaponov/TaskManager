@@ -21,10 +21,22 @@ export function handleChangePass(valuePass){
     }
 }
 
-export function handleSubmitUser(valueName,valueEmail,valuePass){
+export function handleSubmitUser(valueName,valueEmail,valuePass,users){
     return(dispatch) =>{
         event.preventDefault();
-        const user={}
+        if(valueName == ""){
+            alert("please type name");
+        }else if (valueEmail == ""){
+            alert("Please type email")
+        }else{
+        users.map(value=>{
+            if(valueName == value.name){
+                alert("This name is already exist, please change it");
+            }else if(valueEmail == value.email){
+                alert("This email is already register, please change it");
+            }
+        })
+        const user={};
         user["name"] = valueName;
         user["email"] = valueEmail;
         user["pass"] = valuePass;
@@ -32,9 +44,10 @@ export function handleSubmitUser(valueName,valueEmail,valuePass){
         user["deals"] = [];
         user["activeDeals"] = [];
         user["doneDeals"] = [];
-        dispatch(addUser(user))
-        window.location.href = "/"
+        dispatch(addUser(user));
+        window.location.href = "/";
     }
+ }
 }
 
 export function addUser(user){

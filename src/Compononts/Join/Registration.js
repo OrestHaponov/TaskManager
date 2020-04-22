@@ -10,12 +10,14 @@ class Registration extends React.Component {
     render() {
         return (
             <div className="registration">
-                <form onSubmit={()=>this.props.handleSubmitUser(this.props.valueName,this.props.valueEmail,this.props.valuePass)} className="registration__form">
-                    <input type="text" onChange={this.props.handleChangeName} value={this.props.valueName} placeholder="Name"/>
-                    <input type="text" onChange={this.props.handleChangeEmail} value={this.props.valueEmail} placeholder="Email"/>
-                    <input type="text" onChange={this.props.handleChangePass} value={this.props.valuePass} placeholder="Password"/>
-                    <input type="submit" value="Register" className="registration__form-button"/>
-                </form>
+                <div className="wrapper">
+                    <form onSubmit={()=>this.props.handleSubmitUser(this.props.valueName,this.props.valueEmail,this.props.valuePass,this.props.users)} className="registration__form">
+                        <input type="text" onChange={this.props.handleChangeName} value={this.props.valueName} placeholder="Name"/>
+                        <input type="text" onChange={this.props.handleChangeEmail} value={this.props.valueEmail} placeholder="Email"/>
+                        <input type="text" onChange={this.props.handleChangePass} value={this.props.valuePass} placeholder="Password"/>
+                        <input type="submit" value="Register" className="registration__form-button"/>
+                    </form>
+                </div>
             </div>
         );
     }
@@ -36,7 +38,7 @@ function mapDispatchToProps(dispatch){
         handleChangeName: (valueName)=>dispatch(handleChangeName(valueName)),
         handleChangeEmail: (valueEmail)=>dispatch(handleChangeEmail(valueEmail)),
         handleChangePass: (valuePass)=>dispatch(handleChangePass(valuePass)),
-        handleSubmitUser: (valueName,valueEmail,valuePass)=>dispatch(handleSubmitUser(valueName,valueEmail,valuePass)),
+        handleSubmitUser: (valueName,valueEmail,valuePass,users)=>dispatch(handleSubmitUser(valueName,valueEmail,valuePass,users)),
     }
 }
 

@@ -25,6 +25,7 @@ class DealsInfo extends React.Component {
                         showActiveDeals={this.props.showActiveDeals}
                         showCompletedDeals={this.props.showCompletedDeals}
                     />
+                    {this.props.userName == this.props.loginUserName ?
                     <DealsClear 
                         users={this.props.users}
                         userName={this.props.userName}
@@ -33,8 +34,9 @@ class DealsInfo extends React.Component {
                         showCompleted={this.props.showCompleted}
                         clearCompletedDeals={this.props.clearCompletedDeals}
                     />
-                    {/* <div className="bg_one"></div>
-                    <div className="bg_two"></div> */}
+                    : null}
+                    <div className="bg_one"></div>
+                    <div className="bg_two"></div>
                 </div>
         );
     }

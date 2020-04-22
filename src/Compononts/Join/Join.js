@@ -10,10 +10,10 @@ class Join extends React.Component {
     }
     render() {
         return (
-            <div className="Join">
+            <div className="join">
                 <div className="wrapper">
-                <Link to="/login">Login</Link>
-                <Link to="/registration">Registration</Link>
+                    <Link to="/login">Login</Link>
+                    <Link to="/registration">Registration</Link>
                 </div>
             </div>
         );

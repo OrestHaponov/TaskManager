@@ -1,4 +1,4 @@
-import {HANDLE_CHANGE_NAME,HANDLE_CHANGE_EMAIL,HANDLE_CHANGE_PASS,ADD_USER,ADD_USER_DEALS,CLEAR_USERS,DONE,CLEAR_ALL,CLEAR_COMPLETED,RETURN_ALL} from "../Action/ActionTypes";
+import {HANDLE_CHANGE_NAME,HANDLE_CHANGE_EMAIL,HANDLE_CHANGE_PASS,ADD_USER,ADD_USER_DEALS,CLEAR_USERS,DONE,CLEAR_ALL,CLEAR_COMPLETED,RETURN_ALL,SHOW_EDIT_FORM,EDITED_DEALS,SHOW_SHARE_FORM,SHARE} from "../Action/ActionTypes";
 
 const initialState ={
     valueName: "",
@@ -52,6 +52,26 @@ export default function toDoList(state = initialState, action){
             }
         //RETURN ALL
         case RETURN_ALL:
+            return { 
+                ...state, users: action.users
+            }
+        //SHOW EDIT FORM
+        case SHOW_EDIT_FORM:
+            return { 
+                ...state, users: action.users
+            }
+        //SHOW EDITED DEALS
+        case EDITED_DEALS:
+            return { 
+                ...state, users: action.users
+            }
+        //SHOW SHARE DEALS
+        case SHOW_SHARE_FORM:
+            return { 
+                ...state, users: action.users
+            }
+        //SHARE
+        case SHARE:
             return { 
                 ...state, users: action.users
             }

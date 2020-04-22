@@ -5,7 +5,8 @@ import "../fonts/fonts.scss";
 import Routes from "../Routes.js";
 import Join from "../Compononts/Join/Join";
 import UserList from "../Compononts/UsersList/UsersList";
-import UserPage from "../Compononts/UserPage/UserPage";
+import {connect} from "react-redux";
+import Logout from "../Compononts/Join/Logout";
 
 class App extends React.Component {
     constructor(props){
@@ -13,14 +14,26 @@ class App extends React.Component {
     }
     render() {
         return (
-            <div className="app">
-                <UserList />
-                {/* <UserPage /> */}
-                <Join />
+            <div className={this.props.login === true ? "app__login" : "app"}>
+                {this.props.login === true ?
+                    <React.Fragment>
+                        <Logout />
+                        <UserList loginUserName={this.props.loginUserName}/>
+                    </React.Fragment>
+                : 
+                    <Join />
+                }
                 <Routes />
             </div>
         );
     }
 }
 
-export default App;
+function mapStateToProps(state){
+    return{
+        login: state.Login.login,
+        loginUserName: state.Login.loginUserName,
+    }
+}
+
+export default connect (mapStateToProps)(App);

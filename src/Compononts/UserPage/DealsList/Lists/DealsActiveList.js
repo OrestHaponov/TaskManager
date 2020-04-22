@@ -23,12 +23,14 @@ class DealsActiveList extends React.Component {
                                             dealId={value.id}
                                             userName={this.props.userName}
                                             doneDeal={this.props.doneDeal}
+                                            loginUserName={this.props.loginUserName}
                                             doneDealsList={doneDealsList}
-                                            />
+                                        />
                                         <DealText 
                                             text={value.text}
                                             isDone={value.isDone}
-                                            />
+                                            share={value.share}
+                                        />
                                     </li>
                                 )
                             })}

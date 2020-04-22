@@ -1,5 +1,4 @@
-import {HANDLE_CHANGE_EMAIL_LOGIN,HANDLE_CHANGE_PASS_LOGIN,CLEAR_LOGIN_FORM} from "../Action/ActionTypes";
-import { useHistory } from "react-router-dom";
+import {HANDLE_CHANGE_EMAIL_LOGIN,HANDLE_CHANGE_PASS_LOGIN,CLEAR_LOGIN_FORM,LOGIN} from "../Action/ActionTypes";
 
 export function handleChangeEmailLogin(valueEmailLogin){
     return{
@@ -18,17 +17,23 @@ export function handleChangePassLogin(valuePassLogin){
 export function login(valueEmailLogin,valuePassLogin,users){
     return(dispatch) =>{
        event.preventDefault();
-       let history = useHistory();
+       let userName = null;
        users.map(value =>{
            if(value.email == valueEmailLogin && value.pass == valuePassLogin){
-            history.push("/");
-           }else{
-               alert("Wrong email or password")
+               userName = value.name;
+               window.location.href = "/";
            }
        })
+       dispatch(userLogin(userName));
     }
 }
 
+export function userLogin(userName){
+    return{
+        type: LOGIN,
+        userName
+    }
+}
 export function clearLoginForm(){
     return{
         type: CLEAR_LOGIN_FORM

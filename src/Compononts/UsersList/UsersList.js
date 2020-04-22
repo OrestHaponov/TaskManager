@@ -5,6 +5,7 @@ import {toggleUserList} from "../../Store/Action/UserList";
 import UserTitle from "./UserTitle";
 import Users from "./Users";
 import arrow from "./arrow.png";
+import LoginUser from "./LoginUser";
 class UserList extends React.Component {
     constructor(props){
         super(props);
@@ -16,7 +17,14 @@ class UserList extends React.Component {
                     <img src={arrow} alt=""/>
                 </div>
                 <UserTitle />
-                <Users users={this.props.users}/>
+                <LoginUser 
+                    users={this.props.users}
+                    loginUserName={this.props.loginUserName}
+                />
+                <Users 
+                    users={this.props.users}
+                    loginUserName={this.props.loginUserName}
+                />
             </div>
         );
     }

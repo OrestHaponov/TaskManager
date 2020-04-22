@@ -12,7 +12,7 @@ class AllDealsCount extends React.Component {
                         {this.props.userDeals.map((value,index)=>{
                             return(
                                 <span key={index}>
-                                    You have&ensp; 
+                                    Completed&ensp; 
                                     {value.doneDeals.length}  
                                     {value.doneDeals.length == 1 ? " deal " : " deals "}
                                 </span>
