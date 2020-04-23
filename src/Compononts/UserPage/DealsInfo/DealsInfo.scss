@@ -49,3 +49,37 @@
         }
     }
 }
+
+@media screen and (max-width: 767px){
+    .userPage__deals{
+        &-info{
+            flex-wrap: wrap;
+            justify-content: center;
+            padding-bottom: 10px;
+            font-size: 15px;
+            span{
+                flex-basis: 45%;
+                order: 2;
+            }
+            ul{
+                flex-basis: 100%;
+                text-align: center;
+                order: 1;
+            }
+            &-clear{
+                flex-basis: 45%;
+                order: 3;
+            }
+            .bg_one{
+                width: 337px;
+                height: 4px;
+                bottom: -6px;
+            }
+            .bg_two{
+                width: 329px;
+                height: 4px;
+                bottom: -11px;
+            }
+        } 
+    }
+}

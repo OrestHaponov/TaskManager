@@ -13,7 +13,7 @@ class ActiveDealsCount extends React.Component {
                             return(
                                 <span key={index}>
                                     {value.activeDeals.length}
-                                    {value.activeDeals.length == 1 ? " item left" : " items left "}
+                                    {value.activeDeals.length == 1 ? " deal left" : " deals left "}
                                 </span>
                             )
                         })}

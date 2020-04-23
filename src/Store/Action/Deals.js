@@ -238,35 +238,46 @@ export function deleteDeal(users,dealId,userName){
 
     //SHARE DEAL
     
-    export function shareDealText(users,userName,dealId,valueShare){
+    export function shareDealText(users,userName,dealText,valueShare){
         return(dispatch) =>{
             event.preventDefault();
-            const user = users.filter(findNeedUser=>findNeedUser.name == userName);
-            let deal = null
-                user.map(value=>{
-                    value.deals.map(value=>{
-                        if(value.id == dealId){
-                            value.share = false;
-                            value.isDone = false;
-                            deal = value;
-                        }
-                    })
+            const user = users.filter(findUser=>findUser.name == userName);
+            user.map(value=>{
+                value.deals.map(value=>{
+                    value.share = false;
                 })
+            })
+            let newDeal = {}
+            newDeal["text"] = dealText;
+            newDeal["isDone"] = false;
+            newDeal["edit"] = false;
+            newDeal["share"] = false;
+            newDeal["shareBy"] = userName;
+            newDeal["id"] = Math.floor(Math.random() * 1000) + 1;
             if(valueShare == ""){
                 alert("Please type user name");
-            }else{
+            }else{ 
                 let user = users.filter(findNeedUser=>findNeedUser.name == valueShare);
                 if(user.length === 0){
                     alert("user is not defined");
                 }else{
                     user.map(value=>{
-                        value.deals.push(deal);
-                        value.activeDeals.push(deal);
-                        value.deals = value.deals.filter(function (item, pos) {return value.deals.indexOf(item) == pos});
+                        let checkSameDeal = false;
+                        value.deals.map(value=>{
+                            if(value.text == dealText){
+                                checkSameDeal = true;
+                            }
+                        })
+                        if(checkSameDeal){
+                            alert("This user already have this deal");
+                        }else{
+                            value.deals.push(newDeal);
+                            value.activeDeals.push(newDeal);
+                            dispatch(clearUsers())
+                            dispatch(clearShareValue())
+                            dispatch(share(users))
+                        }
                     })
-                    dispatch(clearUsers())
-                    dispatch(clearShareValue())
-                    dispatch(share(users))
                 }
             }
         }

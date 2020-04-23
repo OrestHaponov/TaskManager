@@ -6,6 +6,7 @@ import EditDealForm from "../DealsListElems/EditDealForm";
 import DealEdit from "../DealsListElems/DealEdit";
 import DealShare from "../DealsListElems/DealShare";
 import ShareDealForm from "../DealsListElems/ShareDealForm";
+import ShareBy from "../DealsListElems/ShareBy";
 
 class DealsAllList extends React.Component {
     constructor(props){
@@ -22,6 +23,7 @@ class DealsAllList extends React.Component {
                             {value.deals.map((value,index)=>{
                                 return(
                                     <li key={index}>
+                                        <div className="userPage__deals-list-deal">
                                         <DealDoneInput 
                                             users={this.props.users}
                                             isDone={value.isDone}
@@ -37,6 +39,8 @@ class DealsAllList extends React.Component {
                                                     text={value.text}
                                                     isDone={value.isDone}
                                                     share={value.share}
+                                                    userName={this.props.userName}
+                                                    loginUserName={this.props.loginUserName}
                                                 />
                                                 <DealEdit 
                                                     users={this.props.users}
@@ -70,6 +74,7 @@ class DealsAllList extends React.Component {
                                                 users={this.props.users}
                                                 userName={this.props.userName}
                                                 dealId={value.id}
+                                                dealText={value.text}
                                                 valueShare={this.props.valueShare}
                                                 hadleChangeShare={this.props.hadleChangeShare}
                                                 shareDealText={this.props.shareDealText}
@@ -81,6 +86,10 @@ class DealsAllList extends React.Component {
                                             userName={this.props.userName}
                                             loginUserName={this.props.loginUserName}
                                             deleteDeal={this.props.deleteDeal}
+                                        />
+                                        </div>
+                                        <ShareBy 
+                                            shareBy={value.shareBy}
                                         />
                                     </li>
                                 )

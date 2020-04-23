@@ -8,7 +8,7 @@ class ClearAll extends React.Component {
         return (
                 <React.Fragment>
                     {this.props.showAll === true ? 
-                    <span onClick={()=>this.props.clearAllDeals(this.props.users,this.props.userName)}>
+                    <span onClick={()=>this.props.clearAllDeals(this.props.users,this.props.userName)} className="userPage__deals-info-clear">
                         Clear all
                     </span>
                     : null}

@@ -17,14 +17,15 @@ export function handleChangePassLogin(valuePassLogin){
 export function login(valueEmailLogin,valuePassLogin,users){
     return(dispatch) =>{
        event.preventDefault();
-       let userName = null;
-       users.map(value =>{
-           if(value.email == valueEmailLogin && value.pass == valuePassLogin){
-               userName = value.name;
-               window.location.href = "/";
-           }
+       let user = users.filter(findUser=>(findUser.email == valueEmailLogin && findUser.pass == valuePassLogin));
+       user.map(value =>{
+            dispatch(userLogin(value.name));
        })
-       dispatch(userLogin(userName));
+       if (user.length != 0){
+            window.location.href = "/";
+       }else{
+           alert("Wrong email or password");
+       }
     }
 }
 

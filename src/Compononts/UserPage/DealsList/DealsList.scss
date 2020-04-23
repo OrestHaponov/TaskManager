@@ -12,6 +12,7 @@
         color: #ff9e72;
     }
 }
+
 .userPage{
     .wrapper{
         width: 500px;
@@ -23,10 +24,17 @@
         font-family: 'Montserrat Regular';
         font-size: 20px;
         color: rgba(0, 0, 0, 0.726);
+        &-deal{
+            display: flex;
+            justify-content: space-between;
+            width: 500px;
+        }
         li{
             display: flex;
             justify-content: space-between;
-            height: 50px;
+            flex-wrap: wrap;
+            padding-top: 12px;
+            padding-bottom: 12px;
             margin: 0;
             border: 1px solid rgba(0, 0, 0, 0.144);
             border-top: none;
@@ -41,13 +49,18 @@
             }
         }
         p{
-            width: 450px;
             display: flex;
+            flex-basis: 70%;
             padding-left: 25px;
             align-items: center;
+            margin: 0;
+        }
+        span{
+            padding-left: 25px;
+            color: #C1C1C1;
         }
         form{
-            width: 450px;
+            flex-basis: 70%;
             display: flex;
             align-items: center;
             border-bottom: 2px solid rgba(118, 145, 221, 0.78);
@@ -81,8 +94,12 @@
                 width: 15px;
             }
         }
+        &-shareBy{
+            margin-top: 5px;
+        }
     }
 }
+
 
 .done{
     text-decoration: line-through;
@@ -91,4 +108,47 @@
 .active{
     border: 1px solid rgba(0, 0, 0, 0.212);
     border-radius: 4px;
+}
+
+@media screen and (max-width: 767px){
+    .user{
+        h1{
+            font-size: 60px;
+            margin-top: 80px;
+        }
+    }
+    .userPage{
+        width: 350px;
+        .wrapper{
+            width: 350px;
+        }
+        form{
+            display: flex;
+            justify-content: center;
+        }
+        &__deals-list{
+            li{
+                height: 45px;
+                justify-content: start;
+            }
+            &-input{
+                input{
+                    transform: scale(1.5);
+                }
+            }
+            p{
+                width: 220px;
+                padding-left: 10px;
+                font-size: 17px;
+            }
+            form{
+                width: 235px;
+                input[type=text]{
+                    width: 200px;
+                    height: 40px;
+                    font-size: 22px;
+                }
+            }
+        }
+    }
 }

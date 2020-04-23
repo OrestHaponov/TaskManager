@@ -102,7 +102,7 @@ function mapDispatchToProps(dispatch){
         editDealText: (users,userName,dealId,valueEdit)=>dispatch(editDealText(users,userName,dealId,valueEdit)),
         hadleChangeShare: (valueShare)=>dispatch(hadleChangeShare(valueShare)),
         shareDeal: (users,userName,dealId)=>dispatch(shareDeal(users,userName,dealId)),
-        shareDealText: (users,userName,dealId,valueShare)=>dispatch(shareDealText(users,userName,dealId,valueShare)),
+        shareDealText: (users,userName,dealText,valueShare)=>dispatch(shareDealText(users,userName,dealText,valueShare)),
     }
 }
 

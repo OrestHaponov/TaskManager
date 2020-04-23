@@ -22,6 +22,7 @@ export function addTask(task,users,userName){
                     deal["isDone"] = false;
                     deal["edit"] = false;
                     deal["share"] = false;
+                    deal["shareBy"] = "";
                     deal["id"] = Math.floor(Math.random() * 1000) + 1;
                     value.deals.push(deal);
                     value.activeDeals.push(deal);

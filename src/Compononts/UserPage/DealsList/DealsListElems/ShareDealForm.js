@@ -7,7 +7,7 @@ class ShareDealForm extends React.Component {
 
     render() {  
         return (
-            <form action="" onSubmit={()=>this.props.shareDealText(this.props.users,this.props.userName,this.props.dealId,this.props.valueShare)}>
+            <form action="" onSubmit={()=>this.props.shareDealText(this.props.users,this.props.userName,this.props.dealText,this.props.valueShare)}>
                 <input
                     type="text"
                     value={this.props.valueShare}
